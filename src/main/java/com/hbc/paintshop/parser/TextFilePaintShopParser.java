@@ -12,7 +12,6 @@ import java.util.List;
 @Component
 public class TextFilePaintShopParser implements PaintShopParser {
 
-    @Value("${fileLocation:}")
     private String file;
 
     @Override
@@ -28,9 +27,13 @@ public class TextFilePaintShopParser implements PaintShopParser {
             throw new IllegalArgumentException("File has wrong format.");
         } catch (IOException e) {
             //TODO log error
+            return null;
         }
-        return null;
     }
 
+    @Value("${fileLocation:}")
+    public void setFile(String file) {
+        this.file = file;
+    }
 
 }
