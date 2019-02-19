@@ -22,7 +22,6 @@ public class PaintshopApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		PaintShop paintShop = inputParser.parse();
-		System.out.println(paintShop.getNumberOfColors());
-		System.out.println(paintShop.getCustomers());
+
 	}
 }
