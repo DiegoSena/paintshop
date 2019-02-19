@@ -7,8 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.List;
-
 @SpringBootApplication
 public class PaintshopApplication implements CommandLineRunner {
 
@@ -25,6 +23,6 @@ public class PaintshopApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		PaintShop paintShop = inputParser.parse();
 		System.out.println(paintShop.getNumberOfColors());
-		System.out.println(paintShop.getCustomerOrders());
+		System.out.println(paintShop.getCustomers());
 	}
 }

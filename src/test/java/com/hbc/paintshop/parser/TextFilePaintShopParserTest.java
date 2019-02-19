@@ -13,10 +13,22 @@ public class TextFilePaintShopParserTest {
         parser.setFile("src/test/resources/input1.txt");
         PaintShop paintShop = parser.parse();
         assertEquals(5, paintShop.getNumberOfColors());
-        assertEquals(3, paintShop.getCustomerOrders().size());
-        assertEquals("1 M 3 G 5 G", paintShop.getCustomerOrders().get(0));
-        assertEquals("2 G 3 M 4 G", paintShop.getCustomerOrders().get(1));
-        assertEquals("5 M", paintShop.getCustomerOrders().get(2));
+        assertEquals(3, paintShop.getCustomers().size());
+        assertEquals("[1 M, 3 G, 5 G]", paintShop.getCustomers().get(0).getPreferences().toString());
+        assertEquals("[2 G, 3 M, 4 G]", paintShop.getCustomers().get(1).getPreferences().toString());
+        assertEquals("[5 M]", paintShop.getCustomers().get(2).getPreferences().toString());
+    }
+
+    @Test
+    public void parse_customer_preferences_ordered() {
+        TextFilePaintShopParser parser = new TextFilePaintShopParser();
+        parser.setFile("src/test/resources/input2.txt");
+        PaintShop paintShop = parser.parse();
+        assertEquals(5, paintShop.getNumberOfColors());
+        assertEquals(3, paintShop.getCustomers().size());
+        assertEquals("[1 G, 3 G, 5 M]", paintShop.getCustomers().get(0).getPreferences().toString());
+        assertEquals("[2 M, 3 G, 4 G]", paintShop.getCustomers().get(1).getPreferences().toString());
+        assertEquals("[5 M]", paintShop.getCustomers().get(2).getPreferences().toString());
     }
 
     @Test(expected = IllegalArgumentException.class)

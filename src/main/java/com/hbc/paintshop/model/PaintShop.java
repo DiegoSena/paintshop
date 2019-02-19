@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PaintShop {
     private int numberOfColors;
-    private List<String> customerOrders = new ArrayList<>();
+    private List<Customer> customers = new ArrayList<>();
 
     public PaintShop() {
     }
@@ -18,11 +18,19 @@ public class PaintShop {
         this.numberOfColors = numberOfColors;
     }
 
-    public List<String> getCustomerOrders() {
-        return customerOrders;
+    public List<Customer> getCustomers() {
+        return customers;
     }
 
-    public void setCustomerOrders(List<String> customerOrders) {
-        this.customerOrders = customerOrders;
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
+    @Override
+    public String toString() {
+        return "PaintShop{" +
+                "numberOfColors=" + numberOfColors +
+                ", customers=" + customers +
+                '}';
     }
 }
