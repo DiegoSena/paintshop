@@ -2,10 +2,16 @@ package com.hbc.paintshop;
 
 import com.hbc.paintshop.model.Customer;
 import com.hbc.paintshop.model.Preference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class Mixer {
+
+    private static final Logger LOG = LoggerFactory.getLogger(Mixer.class);
 
     public String mix(Integer numberOfColors, List<Customer> customers){
         Preference[] output = new Preference[numberOfColors];
@@ -17,7 +23,7 @@ public class Mixer {
 
             return buildOutput(output);
         }catch (IllegalStateException e){
-            // log exception
+            LOG.warn("Not able to satisfy all customers");
             return "No solution exists";
         }
     }

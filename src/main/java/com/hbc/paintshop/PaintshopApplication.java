@@ -13,6 +13,9 @@ public class PaintshopApplication implements CommandLineRunner {
 	@Autowired
 	private PaintShopParser inputParser;
 
+	@Autowired
+	private Mixer mixer;
+
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(PaintshopApplication.class);
 		app.run(args);
@@ -23,7 +26,6 @@ public class PaintshopApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		PaintShop paintShop = inputParser.parse();
 		if(paintShop != null){
-			Mixer mixer = new Mixer();
 			System.out.println(mixer.mix(paintShop.getNumberOfColors(), paintShop.getCustomers()));
 		}
 	}
