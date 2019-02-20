@@ -31,11 +31,11 @@ public class TextFilePaintShopParserTest {
         assertEquals("[5 M]", paintShop.getCustomers().get(2).getPreferences().toString());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void parse_file_with_wrong_format() {
         TextFilePaintShopParser parser = new TextFilePaintShopParser();
         parser.setFile("src/test/resources/wrong-format.txt");
-        parser.parse();
+        assertNull(parser.parse());
     }
 
     @Test

@@ -11,10 +11,6 @@ public class Customer {
         Collections.sort(preferences, Preference.COMPARATOR);
     }
 
-    public boolean isSpecialCustomer(){
-        return preferences != null && preferences.size() == 1;
-    }
-
     public List<Preference> getPreferences() {
         return preferences;
     }
