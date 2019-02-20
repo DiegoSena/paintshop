@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hbc</groupId>
 	<artifactId>paintshop</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>paintshop</name>
 	<description>Demo project for Spring Boot</description>
 
